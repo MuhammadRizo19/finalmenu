@@ -1,0 +1,42 @@
+.mybox {
+    position: relative;
+    width: 50%;
+    display: block;
+    margin: auto;
+    margin-bottom: 5px;
+}
+.mybox img {
+    width: 100%;
+}
+.mybox h3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+}
+
+.yourbox {
+    width: 50%;
+    display: block;
+    margin: auto;
+}
+
+@media only screen and (max-width:470px) {
+    .mybox {
+        width: 100% !important;
+    }
+    .mybox h3 {
+        font-size: 15px;
+    }
+    .yourbox {
+        width: 100%;
+    }
+}
+@media only screen and (max-width:660px) {
+    .mybox {
+        width: 100% !important;
+    }
+    .mybox h3 {
+        font-size: 17px;
+    }
+}

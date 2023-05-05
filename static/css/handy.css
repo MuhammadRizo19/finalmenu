@@ -1,0 +1,29 @@
+.login-form {
+    display: block;
+    margin: auto;
+}
+.login-form form {
+    margin-top: 10px;
+}
+.login-form input {
+    width: 100%;
+    outline: none;
+    padding: 2px 6px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.alert {
+    margin-top: 20px;
+}
+
+@media screen and (min-width:601px) {
+    div.mybox {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    div.mybox {
+        font-size: 20px;
+    }
+}

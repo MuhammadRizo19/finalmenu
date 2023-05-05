@@ -1,0 +1,87 @@
+{% load static %}
+{% load i18n %}
+
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <a href="{% url 'home' %}" class="logo" style="color: black;"><img src="{% static 'images/logo-remove.png' %}" width="70" alt=""></a>
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+
+                      {% get_current_language as LANGUAGE_CODE %}
+                      {% get_available_languages as LANGUAGES %}
+                      {% get_language_info_list for LANGUAGES as languages %}          
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          {{LANGUAGE_CODE}}
+                        </a>
+                        <ul class="dropdown-menu">
+                          {% for language in languages %}
+                          <li class="dropdown-item">
+                          <a href="/{{ language.code }}/" {% if language.code == LANGUAGE_CODE %} class="selected"{% endif %}>
+                          {{ language.name_local }}
+                          </a>
+                          </li>
+                          {% endfor %}
+                          </ul>
+                          
+                   <!---------
+                        <li class="scroll-to-section"><a href="{% url 'home' %}">{% trans 'Menu' %}</a></li>
+                      {% if user.is_autenticated %}
+                        <li class="scroll-to-section"><a href="" data-toggle="modal" data-target="#myModal">{% trans 'Log out' %}</a></li> 
+                       ---------> 
+                        <!----------------------------
+                        <li class="submenu">
+                            <a href="javascript:;">Features</a>
+                            <ul>
+                                <li><a href="#">Features Page 1</a></li>
+                                <li><a href="#">Features Page 2</a></li>
+                                <li><a href="#">Features Page 3</a></li>
+                                <li><a href="#">Features Page 4</a></li>
+                            </ul>
+                        </li>
+                        ------------------------------>
+                        <!-------------
+                        {% else %}
+                        <li class="scroll-to-section"><a href="">{% trans 'Login' %}</a></li> 
+                       {% endif %}
+                       --------------->
+                    </ul>        
+                    <a class='menu-trigger'>
+                        <span></span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+  
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Logging out </h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body text-center">
+          Would you really like to log out ?
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <a type="button" class="btn btn-success" data-dismiss="modal">Cancel</a>
+          <a  class="btn btn-danger" href="">Log out</a>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  
