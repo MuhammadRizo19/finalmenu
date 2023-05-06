@@ -32,11 +32,3 @@
         width: 100%;
     }
 }
-@media only screen and (max-width:660px) {
-    .mybox {
-        width: 100% !important;
-    }
-    .mybox h3 {
-        font-size: 17px;
-    }
-}
