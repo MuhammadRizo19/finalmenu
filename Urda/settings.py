@@ -14,13 +14,14 @@ SECRET_KEY = 'django-insecure-x%0#^b1v@a8vhz%&%i46^lsikq26%b_0%4j%&el_qw16e)2e@$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'www.urdamenu.uz']
+ALLOWED_HOSTS = ['urdamenu.uz']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'jazzmin',
+    'rosetta',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -30,7 +31,6 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'baseapp.apps.BaseappConfig',
     'modeltranslation',
-    'rosetta',
 ]
 
 MIDDLEWARE = [
@@ -123,14 +123,14 @@ LOCALE_PATHS = [
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),] 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
+STATIC_ROOT = '/home/urdamenu/public_html/static' 
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = '/home/urdamenu/public_html/media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
