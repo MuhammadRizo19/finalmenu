@@ -1,14 +1,17 @@
 from django.shortcuts import render
-from .models import Category,Meal, Cart, CartItem
+from .models import Category,Meal, Logo,Cart, CartItem
 from django.http import HttpResponse
+from django.core.exceptions import ObjectDoesNotExist
 
 
 def indexpage(request):
     meals = Category.objects.all().filter(bar_food=False,visibility=True)
     bar = Category.objects.all().filter(bar_food=True,visibility=True)
+    logo = Logo.objects.all().filter(main=True)
     context = {
         'meals' : meals,
         'bar' : bar,
+        'logo':logo
         }
     return render(request, 'baseapp/index.html', context)
 
@@ -51,7 +54,7 @@ def cart(request, total=0, quantity=0,cart_items=None):
             total += (cart_item.meal.price*cart_item.quantity)
             quantity += cart_item.quantity
             allitems = Cart_items.objects.all()
-    except ObjectNotExist:
+    except ObjectDoesNotExist:
         pass
 
     context = {

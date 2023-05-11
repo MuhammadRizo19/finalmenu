@@ -17,7 +17,7 @@
           <a class="nav-link active" data-bs-toggle="pill" href="#main">{% trans 'Main Menu' %} ({{meals.count}})</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="pill" href="#bar">{% trans 'Bar' %} ({{bar.count}})</a>
+          <a class="nav-link" data-bs-toggle="pill" href="#bar">{% trans 'Bar' %} <br> ({{bar.count}})</a>
         </li>
       </ul>
     
@@ -25,17 +25,17 @@
       <div class="tab-content py-2">
         <div id="main" class="container tab-pane active">
           {% for meal in meals %}
-          <div class="mybox" style="">
-            <h3><a href="{% url 'menumeals' meal.id %}" style="" class="text-decoration-none text-light px-1">{{meal.category_name}}</a></h3>
-            <a class="text-decoration-none text-dark" href="{% url 'menumeals' meal.id %}"><img src="{{meal.category_image.url}}" class="img-fluid img-thumbnail" style="border-radius: 10px;height:200px;object-fit: cover;" alt=""></a>
+          <div class="mybox">
+            <h3><a href="{% url 'menumeals' meal.id %}" class="text-decoration-none text-light px-1"><b>{{meal.category_name}}</b> </a></h3>
+            <a class="text-decoration-none text-dark" href="{% url 'menumeals' meal.id %}"><img src="{{meal.category_image.url}}" class="img-fluid img-thumbnail" style="border-radius: 50px;height:200px;object-fit: cover;" alt=""></a>
           </div>
           {% endfor %}
         </div>
         <div id="bar" class="container tab-pane fade">
           {% for b in bar %}
           <div class="mybox">
-            <h3><a href="{% url 'menumeals' b.id %}" style="" class="text-decoration-none text-light px-1">{{b.category_name}}</a></h3>
-            <a class="text-decoration-none text-dark" href="{% url 'menumeals' b.id %}"><img src="{{b.category_image.url}}" class="img-fluid img-thumbnail" style="border-radius: 10px;height:200px;object-fit: cover;" alt=""></a>
+            <h3><a href="{% url 'menumeals' b.id %}" class="text-decoration-none text-light px-1"><b> {{b.category_name}}</b> </a></h3>
+            <a class="text-decoration-none text-dark" href="{% url 'menumeals' b.id %}"><img src="{{b.category_image.url}}" class="img-fluid img-thumbnail" style="height:200px;object-fit: cover;border-radius:50px;" alt=""></a>
           </div>
           {% endfor %}
         </div>

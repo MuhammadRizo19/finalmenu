@@ -6,9 +6,10 @@
         <div class="row">
             <div class="col-12">
                 <nav class="main-nav">
-                    <a href="{% url 'home' %}" class="logo" style="color: black;"><img src="{% static 'images/logo-remove.png' %}" width="70" alt=""></a>
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
+                    {% if logo %}
+                    <a href="{% url 'home' %}" class="logo" style="color: black;"><img src="{% static 'images/logo-remove.png' %}" width="70" alt=""></a> 
+                    {% endif %}
+                 <ul class="nav">
 
                       {% get_current_language as LANGUAGE_CODE %}
                       {% get_available_languages as LANGUAGES %}
@@ -49,9 +50,7 @@
                        {% endif %}
                        --------------->
                     </ul>        
-                    <a class='menu-trigger'>
-                        <span></span>
-                    </a>
+                    
                     <!-- ***** Menu End ***** -->
                 </nav>
             </div>

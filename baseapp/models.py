@@ -49,3 +49,12 @@ class CartItem(models.Model):
 
     def __str__(self):
         return self.meal
+
+class Logo(models.Model):
+    id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
+    logo_text = models.CharField(max_length=10, null=True, blank=True)
+    logo_image = models.ImageField(upload_to='logo/')
+    main = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.logo_text
