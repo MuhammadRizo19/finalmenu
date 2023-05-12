@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Category,Meal, Logo,Cart, CartItem
 from django.http import HttpResponse
 from django.core.exceptions import ObjectDoesNotExist
@@ -43,8 +43,7 @@ def add_cart(request, meal_id):
     except CartItem.DoesNotExist:
         cart_item = CartItem.objects.create(meal=meal, quantity=1,cart=cart)
         cart.save()
-    return HttpResponse(cart_item.meal)
-    exit()
+    return redirect('cart')
 
 def cart(request, total=0, quantity=0,cart_items=None):
     try:
@@ -53,7 +52,7 @@ def cart(request, total=0, quantity=0,cart_items=None):
         for cart_item in cart_items:
             total += (cart_item.meal.price*cart_item.quantity)
             quantity += cart_item.quantity
-            allitems = Cart_items.objects.all()
+            allitems = CartItem.objects.all()
     except ObjectDoesNotExist:
         pass
 

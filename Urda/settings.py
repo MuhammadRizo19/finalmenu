@@ -12,9 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-x%0#^b1v@a8vhz%&%i46^lsikq26%b_0%4j%&el_qw16e)2e@$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['urdamenu.uz']
+ALLOWED_HOSTS = []
 
 
 # Application definition

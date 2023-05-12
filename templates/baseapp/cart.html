@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
 
 {% block content %}
 <div id="top">
     <div class="container">
         <div class="container py-3">
             <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{% url 'home' %}">{% tran 'Menu' %}</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">{% trans 'Menu' %}</a></li>
             </ul>    
         <h5 class="my-2"> {% trans 'Meals added to cart' %}</h5>
         <div class="d-flex flex-wrap">
@@ -13,16 +15,16 @@
             <div class="card mx-1 mycart" style="width: 30%;">
                 <img src="{{cart_item.meal.meal_image1.url}}" alt="...">
                 <div class="card-body">
-                  <h4 class="card-title">{{cart_item.meal}}</h4>
-                  <h6 class="card-text">{{cart_item.meal.meal_description}}</h6><br>
+                  <h5 class="card-title">{{cart_item.meal}}</h5>
+                  <p class="card-text">{{cart_item.meal.meal_description}}</p><br>
                   <div class="card-footer">
                   <div class="input-group input-spinner">
                     <div class="input-group-prepend">
-                        <button class="btn btn-light" type="button" id="button-plus">+</button>
+                        <button class="btn btn-light decrement-btn" type="button" id="button-minus">-</button>
                     </div>
-                    <input type="text" class="form-control" value="{{cart_item.quantity}}">
+                    <input type="number" class="form-control text-center input-qty" value="{{cart_item.quantity}}">
                     <div class="input-group-append">
-                        <a href="{% url 'add_cart' cart_item.meal.id %}" class="btn btn-light" id="button-minus">-</a>
+                        <a href="{% url 'add_cart' cart_item.meal.id %}" class="btn btn-light increment-btn" id="button-minus">+</a>
                     </div>
                   </div>
                 </div>
@@ -33,4 +35,11 @@
         </div>
     </div>
 </div>
+
+{% block js %}
+
+<script src="{% static 'js/mycustom.js' %}"></script>
+
+{% endblock js %}
+
 {% endblock content %}

@@ -47,7 +47,7 @@
       <p class="text-start my-1">{{meal.meal_description}}</p>
       <div class="d-flex justify-content-between">
       <h6 class="text-start text-primary"><b> {{meal.price}}</b> <sup><b> {% trans "so'm" %}</b></sup></h6>
-      <a href="{% url 'add_cart' meal.pk %}" class="btn btn-primary text-light btn-sm"><b> {% trans 'Add cart' %} </b></a>
+      <a href="{% url 'add_cart' meal.pk %}" class="btn btn-primary text-light btn-sm"><b>{% trans 'Add cart' %}</b></a>
       </div>
      
     </div>
@@ -70,8 +70,7 @@
       <p class="text-start my-1">{{meal.meal_description}}</p>
       <div class="d-flex justify-content-between">
       <h6 class="text-start text-primary">{{meal.price}} <sup>{% trans "so'm" %}</sup></h6>
-      </div>
-     
+     </div>     
     </div>
    {% endif %}
     {% endfor %}

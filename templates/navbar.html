@@ -6,9 +6,8 @@
         <div class="row">
             <div class="col-12">
                 <nav class="main-nav">
-                    {% if logo %}
+                    
                     <a href="{% url 'home' %}" class="logo" style="color: black;"><img src="{% static 'images/logo-remove.png' %}" width="70" alt=""></a> 
-                    {% endif %}
                  <ul class="nav">
 
                       {% get_current_language as LANGUAGE_CODE %}
